@@ -53,13 +53,13 @@ In this project we are going to be building a news feed reader. The goal is to h
 If you complete the main goals of the page let's play around with some cool animation libraries.
 
 A few things to check out: 
-* Native CSS Animations. 
+* [X] Native CSS Animations. 
   * CSS has the ability to animate elements using a number of different properties. Check out `transform` and `transition`, and `animate`. A word of warning, these CSS properties will act differently on different browsers, so always read and see if you need a `browser prefix` in order to animate properly. 
   * https://css-tricks.com/almanac/properties/a/animation/
-* jQuery
+* [X] jQuery
   * jQuery is an extremely popular JavaScript library, in fact most of the native DOM manipulation we know and love, came from the jQuery library. It is worth getting a little familiar with it. The jQuery library is massive, and part of it is an animation library. jQuery gives us a fantastic method called `.animate()`. There are also simpler methods such as `slideDown` `slideUp`, `slideToggle`, `show`, `hide` and more.
   * http://www.jquery.com
-* GSAP
+* [X] GSAP
   * Greensock Animation Platform, is by far the most powerful of the three. It is intuitive and easy to use, and you will be amazed at the results.
   * https://greensock.com/gsap
 
@@ -71,10 +71,10 @@ Note: Just a reminder the stretch goals are just extra practice using the tools 
 
 * Close Button
 
-  Add a close (or 'read') button to each Article component. When clicked the article will disappear.
+  [X] Add a close (or 'read') button to each Article component. When clicked the article will disappear.
 
 * Component Constructor
   
-  Create a function that builds Article components. You are not expected to finish this. This goal is simply an exercise in thinking about how you would implement a function that took some data, created a new Article from it, and appended it to the HTML (without actually writing anything in the HTML file). This is a difficult concept to undertake, but even thinking about how you would implement it will give you a better understanding of how we use frameworks in upcoming sprints. 
+  [X] Create a function that builds Article components. You are not expected to finish this. This goal is simply an exercise in thinking about how you would implement a function that took some data, created a new Article from it, and appended it to the HTML (without actually writing anything in the HTML file). This is a difficult concept to undertake, but even thinking about how you would implement it will give you a better understanding of how we use frameworks in upcoming sprints. 
 
 * Implement a way to write your own articles using the Component Constructor and some input fields. 
