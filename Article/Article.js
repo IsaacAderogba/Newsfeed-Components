@@ -26,6 +26,92 @@ class Article {
 
 */
 
+
+
+
+// add articles
+const articleData = [
+  {
+    heading: 'Big',
+    date: 'Nov 5th, 2017',
+    paragraph1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    paragraph2: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    paragraph3: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  },
+  {
+    heading: 'Mighty',
+    date: 'Nov 5th, 2017',
+    paragraph1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    paragraph2: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    paragraph3: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  },
+  {
+    heading: 'Sheep',
+    date: 'Nov 5th, 2017',
+    paragraph1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    paragraph2: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    paragraph3: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  },
+];
+
+// append to articles
+class ArticleGenerator {
+  constructor(data) {
+    // Create article structure
+    let pageArticles = document.querySelector('.articles');
+    this.articleDiv = document.createElement('div');
+    this.articleDiv.classList.add('article');
+    pageArticles.appendChild(this.articleDiv);
+
+    // pass in key article data
+    this.data = data;
+
+    this.appendHeading();
+    this.appendDate();
+    this.appendParagraphs();
+    this.appendButton();
+  }
+
+  appendHeading() {
+    const heading = document.createElement('h2');
+    heading.textContent = this.data.heading;
+    this.articleDiv.append(heading);
+  }
+
+  appendDate(){
+    const date = document.createElement('p');
+    date.classList.add('date');
+    date.textContent = this.data.date;
+    this.articleDiv.append(date);
+  }
+
+  appendParagraphs() {
+    const paragraph1 = document.createElement('p');
+    paragraph1.textContent = this.data.paragraph1;
+    this.articleDiv.append(paragraph1);
+
+    const paragraph2 = document.createElement('p');
+    paragraph2.textContent = this.data.paragraph2;
+    this.articleDiv.append(paragraph2);
+
+    const paragraph3 = document.createElement('p');
+    paragraph3.textContent = this.data.paragraph3;
+    this.articleDiv.append(paragraph3);
+  }
+
+  appendButton() {
+    const span = document.createElement('span');
+    span.classList.add('expandButton');
+    this.articleDiv.append(span);
+  }
+}
+
+new ArticleGenerator(articleData[0]);
+new ArticleGenerator(articleData[1]);
+new ArticleGenerator(articleData[2]);
+
+
+
 let articles = document.querySelectorAll('.article');
 
 articles.forEach(article => {
