@@ -19,7 +19,7 @@ class Article {
     if (this.domElement.classList.contains('article-open')) {
       TweenMax.from('.article-open', 2, { height: 400 });
       TweenMax.to('.article-open', 2, { height: 50 });
-    } else {
+    } else  {
       this.domElement.classList.toggle('article-open');
       TweenMax.from('.article-open', 2, { height: 0 });
       TweenMax.to('.article-open', 2, { height: 400 });
@@ -60,6 +60,11 @@ const articleData = [
     paragraph1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     paragraph2: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     paragraph3: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  },
+  {
+    heading: '',
+    date: '',
+    paragraph1: '',
   },
 ];
 
@@ -120,6 +125,7 @@ new ArticleGenerator(articleData[0]);
 new ArticleGenerator(articleData[1]);
 new ArticleGenerator(articleData[2]);
 
+
 class CloseButton {
   constructor(article) {
     this.article = article;
@@ -139,12 +145,46 @@ class CloseButton {
   }
 }
 
+let formData = new FormData(document.querySelector('form'));
+
+let titleValue = document.getElementById('title');
+let dateValue = document.getElementById('date');
+let messageValue = document.getElementById('msg');
+
+titleValue.addEventListener('input', () => {
+  articleData[3].heading = document.getElementById('title').value;
+});
+
+dateValue.addEventListener('input', () => {
+  articleData[3].date = document.getElementById('date').value;
+});
+
+messageValue.addEventListener('input', () => {
+  articleData[3].paragraph1 = document.getElementById('msg').value;
+});
+
+let button = document.querySelector('.btn');
+button.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  new ArticleGenerator(articleData[3]);
+
+  let articles = document.querySelectorAll('.article');
+  articles.forEach(article => {
+    new Article(article);
+    new CloseButton(article);
+  });
+});
+
+
 let articles = document.querySelectorAll('.article');
 
 articles.forEach(article => {
   new Article(article);
   new CloseButton(article);
 });
+
+
 
 
 
