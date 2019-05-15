@@ -19,9 +19,9 @@ menu.addEventListener('click', event => event.stopPropagation());
 
 
 // body click listener
-const body = document.querySelector('body');
+const html = document.querySelector('html');
 
-body.addEventListener('click', slideMenuIn);
+html.addEventListener('click', slideMenuIn);
 
 function slideMenuIn() {
   if (menu.classList.contains('menu--open')) {
