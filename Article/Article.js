@@ -54,7 +54,7 @@ const articleData = [
   },
 ];
 
-// append to articles
+// append to articles - Component Constructor Stretch
 class ArticleGenerator {
   constructor(data) {
     // Create article structure
@@ -66,6 +66,7 @@ class ArticleGenerator {
     // pass in key article data
     this.data = data;
 
+    // call helper methods
     this.appendHeading();
     this.appendDate();
     this.appendParagraphs();
@@ -110,10 +111,31 @@ new ArticleGenerator(articleData[0]);
 new ArticleGenerator(articleData[1]);
 new ArticleGenerator(articleData[2]);
 
+class CloseButton {
+  constructor(article) {
+    this.article = article;
 
+    this.appendCloseButton();
+  }
+
+  appendCloseButton() {
+    const span = document.createElement('span');
+    span.textContent = 'Close';
+    span.classList.add('closeButton');
+    span.setAttribute('style', 'position: absolute; top: 7%; right: 2%; font-size: 12px; color: grey; cursor: pointer; transform: translate(-50%); background-color: white;');
+    span.addEventListener('click', () => {
+      this.article.setAttribute('style', 'display: none;');
+    })
+    this.article.prepend(span);
+  }
+}
 
 let articles = document.querySelectorAll('.article');
 
 articles.forEach(article => {
   new Article(article);
+  new CloseButton(article);
 });
+
+
+
